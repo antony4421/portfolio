@@ -165,20 +165,27 @@ const ExperienceCard = ({ experience }) => {
                         <br />
                         <Skills>
                             <b>Skills:</b>
-                            <ItemWrapper>
-                                {experience?.skills?.map((skill, index) => (
-                                    <Skill>• {skill}</Skill>
-                                ))}
-                            </ItemWrapper>
+                           <ItemWrapper>
+  {experience?.skills?.map((skill, index) => (
+    <Skill key={`skill-${index}`}>• {skill}</Skill>
+  ))}
+</ItemWrapper>
+
                         </Skills>
                     </>
                 }
             </Description>
-            {experience.doc &&
-                <a href={experience.doc} target="new">
-                    <Document src={experience.doc} />
-                </a>
-            }
+           {experience.doc && (
+  <iframe
+    src={experience.doc.replace("/view", "/preview")}
+    width="280"
+    height="auto"
+    style={{ border: 'none' }}
+    allow="autoplay"
+    title="Certificate Preview"
+  />
+)}
+
         </Card>
     )
 }
