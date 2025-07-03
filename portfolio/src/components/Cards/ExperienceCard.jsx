@@ -175,16 +175,18 @@ const ExperienceCard = ({ experience }) => {
                     </>
                 }
             </Description>
-           {experience.doc && (
+   {experience.doc && (
   <iframe
-    src={experience.doc.replace("/view", "/preview")}
-    width="280"
-    height="auto"
-    style={{ border: 'none' }}
+    src={`https://drive.google.com/file/d/${experience.doc}/preview`}
+    width="50%"
+    height="200"
+    style={{ border: 'none', borderRadius: '8px', marginTop: '10px' }}
     allow="autoplay"
     title="Certificate Preview"
   />
 )}
+
+
 
         </Card>
     )
